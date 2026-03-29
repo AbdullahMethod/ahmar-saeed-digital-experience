@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/hooks/useThemeToggle';
+import logo from '@/assets/logo.png';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -48,9 +49,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
         <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-accent to-secondary flex items-center justify-center">
-            <span className="font-display text-lg font-bold text-primary-foreground">AS</span>
-          </div>
+          <img src={logo} alt="AS Logo" className="w-10 h-10 rounded-xl object-contain" width={40} height={40} />
           <span className="hidden sm:inline font-display text-sm text-muted-foreground group-hover:text-foreground transition-colors">
             Ahmar Saeed
           </span>
