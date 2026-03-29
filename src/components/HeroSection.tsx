@@ -1,22 +1,30 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Globe, Calendar } from 'lucide-react';
+import { ArrowDown, Globe, Calendar, Sparkles } from 'lucide-react';
 
 const HeroSection = () => (
   <section id="home" className="min-h-screen flex items-center justify-center relative section-padding pt-32">
+    {/* Colorful decorative ring */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full border border-primary/10 animate-spin-slow pointer-events-none" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[650px] md:h-[650px] rounded-full border border-secondary/10 animate-spin-slow pointer-events-none" style={{ animationDirection: 'reverse' }} />
+
     <div className="max-w-5xl mx-auto text-center relative z-10">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-primary font-display text-sm md:text-base tracking-[0.3em] uppercase mb-6"
+          className="flex items-center justify-center gap-2 mb-6"
         >
-          Welcome to my portfolio
-        </motion.p>
+          <Sparkles size={16} className="text-glow-orange" />
+          <p className="text-primary font-display text-sm md:text-base tracking-[0.3em] uppercase">
+            Welcome to my portfolio
+          </p>
+          <Sparkles size={16} className="text-glow-pink" />
+        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -54,10 +62,10 @@ const HeroSection = () => (
           className="flex flex-wrap justify-center gap-3 mb-10"
         >
           <span className="glass glow-border px-4 py-2 rounded-full text-sm flex items-center gap-2">
-            <Globe size={14} className="text-primary" /> English, Urdu
+            <Globe size={14} className="text-glow-green" /> English, Urdu
           </span>
           <span className="glass glow-border px-4 py-2 rounded-full text-sm flex items-center gap-2">
-            <Calendar size={14} className="text-primary" /> DOB: 18-12-1999
+            <Calendar size={14} className="text-glow-orange" /> DOB: 18-12-1999
           </span>
         </motion.div>
 
@@ -70,13 +78,16 @@ const HeroSection = () => (
         >
           <a
             href="#experience"
-            className="px-8 py-3 rounded-lg bg-gradient-to-r from-primary to-accent text-primary-foreground font-display font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
+            className="group px-8 py-3 rounded-lg font-display font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20 relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, hsl(var(--glow-cyan)), hsl(var(--glow-blue)), hsl(var(--glow-purple)))'
+            }}
           >
-            View Portfolio
+            <span className="relative z-10">View Portfolio</span>
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 rounded-lg glass glow-border font-display font-semibold text-foreground hover:bg-primary/10 transition-all duration-300 hover:-translate-y-0.5"
+            className="px-8 py-3 rounded-lg glass glow-border font-display font-semibold text-foreground hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
           >
             Contact Me
           </a>

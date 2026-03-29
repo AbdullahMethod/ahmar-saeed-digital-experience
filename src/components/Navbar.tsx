@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '@/hooks/useThemeToggle';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -15,6 +18,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => {
@@ -43,19 +47,21 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
         <a href="#home" className="flex items-center gap-2 group">
-          <span className="font-display text-2xl font-bold glow-text tracking-tight">AS</span>
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-accent to-secondary flex items-center justify-center">
+            <span className="font-display text-lg font-bold text-primary-foreground">AS</span>
+          </div>
           <span className="hidden sm:inline font-display text-sm text-muted-foreground group-hover:text-foreground transition-colors">
             Ahmar Saeed
           </span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-1">
           {navLinks.map(link => (
             <a
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                 active === link.href.slice(1)
                   ? 'text-primary bg-primary/10'
                   : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
@@ -64,12 +70,35 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={toggle}
+            className="ml-2 p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
+            aria-label="Toggle theme"
+          >
+            <motion.div
+              key={theme}
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </motion.div>
+          </button>
         </div>
 
-        {/* Mobile toggle */}
-        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-foreground p-2">
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile */}
+        <div className="flex lg:hidden items-center gap-2">
+          <button
+            onClick={toggle}
+            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="text-foreground p-2">
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -79,7 +108,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong border-t border-border overflow-hidden"
+            className="lg:hidden glass-strong border-t border-border overflow-hidden"
           >
             <div className="p-4 flex flex-col gap-1">
               {navLinks.map(link => (
