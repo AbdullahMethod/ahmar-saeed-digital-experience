@@ -18,7 +18,7 @@ const ContactSection = () => (
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
               <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2 text-muted-foreground">
                 <Mail size={18} className="text-primary" />
-                <span>ahmarsaeed1999@gmail.com</span>
+                <span>ahmarchoudhry56@gmail.com</span>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2 text-muted-foreground">
                 <MapPin size={18} className="text-primary" />
@@ -27,7 +27,7 @@ const ContactSection = () => (
             </div>
             <motion.a
               whileHover={{ scale: 1.05, y: -2 }}
-              href="mailto:ahmarsaeed1999@gmail.com"
+              href="mailto:ahmarchoudhry56@gmail.com"
               className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-display font-semibold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
             >
               <Send size={16} />

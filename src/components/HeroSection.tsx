@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Globe, Calendar } from 'lucide-react';
+import { ArrowDown, Globe } from 'lucide-react';
+import profileImg from '@/assets/profile.jpeg';
 
 const HeroSection = () => (
   <section id="home" className="min-h-screen flex items-center justify-center relative section-padding pt-32">
@@ -12,6 +13,16 @@ const HeroSection = () => (
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
       >
+        {/* Profile Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="mx-auto mb-8 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-border shadow-xl"
+        >
+          <img src={profileImg} alt="Ahmar Saeed" className="w-full h-full object-cover object-top" />
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,9 +72,6 @@ const HeroSection = () => (
         >
           <span className="glass glow-border px-4 py-2 rounded-full text-sm flex items-center gap-2">
             <Globe size={14} className="text-grey-2" /> English, Urdu
-          </span>
-          <span className="glass glow-border px-4 py-2 rounded-full text-sm flex items-center gap-2">
-            <Calendar size={14} className="text-grey-2" /> DOB: 18-12-1999
           </span>
         </motion.div>
 
