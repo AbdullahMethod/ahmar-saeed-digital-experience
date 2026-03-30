@@ -12,24 +12,41 @@ const services = [
   { icon: Wrench, title: 'Hardware Maintenance', desc: 'Diagnose, repair, and maintain computer hardware, peripherals, and networking equipment.' },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, rotateX: -10 },
+  visible: (i: number) => ({
+    opacity: 1, y: 0, rotateX: 0,
+    transition: { delay: i * 0.12, duration: 0.6, ease: 'easeOut' as const },
+  }),
+};
+
 const ServicesSection = () => (
   <section id="services" className="section-padding relative">
     <div className="max-w-6xl mx-auto relative z-10">
       <SectionHeading title="Services" subtitle="What I bring to the table" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((s, i) => (
-          <AnimatedSection key={s.title} delay={i * 0.1}>
+          <motion.div
+            key={s.title}
+            custom={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-40px' }}
+            whileHover={{ scale: 1.05, y: -8 }}
+            whileTap={{ scale: 0.97 }}
+            className="glass glow-border p-6 rounded-xl cursor-default group h-full"
+          >
             <motion.div
-              whileHover={{ scale: 1.03, y: -6 }}
-              className="glass glow-border p-6 rounded-xl cursor-default group h-full"
+              whileHover={{ rotate: 10, scale: 1.1 }}
+              transition={{ type: 'spring', stiffness: 200 }}
+              className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-5"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <s.icon size={24} className="text-primary-foreground" />
-              </div>
-              <h3 className="font-display text-lg font-bold text-foreground mb-2">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+              <s.icon size={24} className="text-primary-foreground" />
             </motion.div>
-          </AnimatedSection>
+            <h3 className="font-display text-lg font-bold text-foreground mb-2">{s.title}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+          </motion.div>
         ))}
       </div>
     </div>

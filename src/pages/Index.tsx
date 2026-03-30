@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import FloatingBlobs from '@/components/FloatingBlobs';
 import HeroSection from '@/components/HeroSection';
@@ -11,21 +12,33 @@ import EducationSection from '@/components/EducationSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
+const pageVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.1 } },
+};
+
 const Index = () => (
-  <div className="relative min-h-screen overflow-x-hidden">
-    <FloatingBlobs />
-    <Navbar />
-    <HeroSection />
-    <AboutSection />
-    <ServicesSection />
-    <ExperienceSection />
-    <SkillsSection />
-    <ProjectsSection />
-    <CertificationsSection />
-    <EducationSection />
-    <ContactSection />
-    <Footer />
-  </div>
+  <AnimatePresence>
+    <motion.div
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      className="relative min-h-screen overflow-x-hidden"
+    >
+      <FloatingBlobs />
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <CertificationsSection />
+      <EducationSection />
+      <ContactSection />
+      <Footer />
+    </motion.div>
+  </AnimatePresence>
 );
 
 export default Index;
