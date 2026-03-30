@@ -8,28 +8,24 @@ const projects = [
     title: 'Office Network Infrastructure',
     desc: 'Designed and deployed a complete LAN/WAN setup for a corporate office with 50+ endpoints, ensuring high availability and security.',
     tags: ['Networking', 'LAN/WAN', 'Firewall'],
-    gradient: 'from-glow-cyan via-glow-blue to-glow-purple',
     icon: Network,
   },
   {
     title: 'CCTV Surveillance System',
     desc: 'Installed and configured a 32-camera CCTV system with remote monitoring, motion detection, and cloud backup integration.',
     tags: ['CCTV', 'Security', 'Remote Access'],
-    gradient: 'from-glow-blue via-glow-purple to-glow-pink',
     icon: Shield,
   },
   {
     title: 'Server Room Setup & Maintenance',
     desc: 'Set up and maintained a server room with proper cooling, UPS backup, and organized cabling for optimal performance.',
     tags: ['Server', 'Maintenance', 'Infrastructure'],
-    gradient: 'from-glow-purple via-glow-pink to-glow-orange',
     icon: Server,
   },
   {
     title: 'Administrative Documentation System',
     desc: 'Developed a streamlined documentation process for administrative records, improving retrieval efficiency by 60%.',
     tags: ['Admin', 'Documentation', 'Process'],
-    gradient: 'from-glow-orange via-glow-green to-glow-cyan',
     icon: FileText,
   },
 ];
@@ -45,11 +41,10 @@ const ProjectsSection = () => (
               whileHover={{ scale: 1.02, y: -4 }}
               className="glass rounded-xl overflow-hidden cursor-default group h-full"
             >
-              {/* Colorful top bar */}
-              <div className={`h-2 bg-gradient-to-r ${p.gradient}`} />
+              <div className="h-2 bg-gradient-to-r from-grey-1 via-grey-3 to-grey-5" />
               <div className="p-6">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${p.gradient} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
+                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <p.icon size={20} className="text-primary-foreground" />
                   </div>
                   <h3 className="font-display text-lg font-bold text-foreground">{p.title}</h3>

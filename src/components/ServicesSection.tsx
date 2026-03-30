@@ -4,42 +4,12 @@ import SectionHeading from './SectionHeading';
 import { motion } from 'framer-motion';
 
 const services = [
-  {
-    icon: Network,
-    title: 'Network Administration',
-    desc: 'Design, setup, and maintain secure local and wide area networks for seamless connectivity.',
-    gradient: 'from-glow-cyan to-glow-blue',
-  },
-  {
-    icon: Cctv,
-    title: 'CCTV & Surveillance',
-    desc: 'Install, configure, and manage surveillance systems for comprehensive security coverage.',
-    gradient: 'from-glow-blue to-glow-purple',
-  },
-  {
-    icon: Server,
-    title: 'Server Management',
-    desc: 'Maintain and optimize servers for peak performance, uptime, and data integrity.',
-    gradient: 'from-glow-purple to-glow-pink',
-  },
-  {
-    icon: Monitor,
-    title: 'IT Support & Helpdesk',
-    desc: 'Provide responsive technical support and troubleshooting for hardware and software issues.',
-    gradient: 'from-glow-pink to-glow-orange',
-  },
-  {
-    icon: Shield,
-    title: 'System Security',
-    desc: 'Implement security protocols, firewalls, and data protection measures across IT infrastructure.',
-    gradient: 'from-glow-orange to-glow-green',
-  },
-  {
-    icon: Wrench,
-    title: 'Hardware Maintenance',
-    desc: 'Diagnose, repair, and maintain computer hardware, peripherals, and networking equipment.',
-    gradient: 'from-glow-green to-glow-cyan',
-  },
+  { icon: Network, title: 'Network Administration', desc: 'Design, setup, and maintain secure local and wide area networks for seamless connectivity.' },
+  { icon: Cctv, title: 'CCTV & Surveillance', desc: 'Install, configure, and manage surveillance systems for comprehensive security coverage.' },
+  { icon: Server, title: 'Server Management', desc: 'Maintain and optimize servers for peak performance, uptime, and data integrity.' },
+  { icon: Monitor, title: 'IT Support & Helpdesk', desc: 'Provide responsive technical support and troubleshooting for hardware and software issues.' },
+  { icon: Shield, title: 'System Security', desc: 'Implement security protocols, firewalls, and data protection measures across IT infrastructure.' },
+  { icon: Wrench, title: 'Hardware Maintenance', desc: 'Diagnose, repair, and maintain computer hardware, peripherals, and networking equipment.' },
 ];
 
 const ServicesSection = () => (
@@ -53,7 +23,7 @@ const ServicesSection = () => (
               whileHover={{ scale: 1.03, y: -6 }}
               className="glass glow-border p-6 rounded-xl cursor-default group h-full"
             >
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${s.gradient} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
+              <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                 <s.icon size={24} className="text-primary-foreground" />
               </div>
               <h3 className="font-display text-lg font-bold text-foreground mb-2">{s.title}</h3>
