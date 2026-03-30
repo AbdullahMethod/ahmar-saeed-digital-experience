@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Globe, Calendar, Sparkles } from 'lucide-react';
+import { ArrowDown, Globe, Calendar } from 'lucide-react';
 
 const HeroSection = () => (
   <section id="home" className="min-h-screen flex items-center justify-center relative section-padding pt-32">
-    {/* Colorful decorative ring */}
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full border border-primary/10 animate-spin-slow pointer-events-none" />
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[650px] md:h-[650px] rounded-full border border-secondary/10 animate-spin-slow pointer-events-none" style={{ animationDirection: 'reverse' }} />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full border border-border/50 animate-spin-slow pointer-events-none" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[650px] md:h-[650px] rounded-full border border-border/30 animate-spin-slow pointer-events-none" style={{ animationDirection: 'reverse' }} />
 
     <div className="max-w-5xl mx-auto text-center relative z-10">
       <motion.div
@@ -19,11 +18,11 @@ const HeroSection = () => (
           transition={{ delay: 0.2 }}
           className="flex items-center justify-center gap-2 mb-6"
         >
-          <Sparkles size={16} className="text-glow-orange" />
+          <div className="w-8 h-px bg-primary/50" />
           <p className="text-primary font-display text-sm md:text-base tracking-[0.3em] uppercase">
             Welcome to my portfolio
           </p>
-          <Sparkles size={16} className="text-glow-pink" />
+          <div className="w-8 h-px bg-primary/50" />
         </motion.div>
 
         <motion.h1
@@ -54,7 +53,6 @@ const HeroSection = () => (
           Passionate about building robust IT infrastructures, managing networks, and ensuring seamless administrative operations with a focus on security and efficiency.
         </motion.p>
 
-        {/* Badges */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -62,14 +60,13 @@ const HeroSection = () => (
           className="flex flex-wrap justify-center gap-3 mb-10"
         >
           <span className="glass glow-border px-4 py-2 rounded-full text-sm flex items-center gap-2">
-            <Globe size={14} className="text-glow-green" /> English, Urdu
+            <Globe size={14} className="text-grey-2" /> English, Urdu
           </span>
           <span className="glass glow-border px-4 py-2 rounded-full text-sm flex items-center gap-2">
-            <Calendar size={14} className="text-glow-orange" /> DOB: 18-12-1999
+            <Calendar size={14} className="text-grey-2" /> DOB: 18-12-1999
           </span>
         </motion.div>
 
-        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,16 +75,13 @@ const HeroSection = () => (
         >
           <a
             href="#experience"
-            className="group px-8 py-3 rounded-lg font-display font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20 relative overflow-hidden"
-            style={{
-              background: 'linear-gradient(135deg, hsl(var(--glow-cyan)), hsl(var(--glow-blue)), hsl(var(--glow-purple)))'
-            }}
+            className="group px-8 py-3 rounded-lg font-display font-semibold bg-primary text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20"
           >
-            <span className="relative z-10">View Portfolio</span>
+            View Portfolio
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 rounded-lg glass glow-border font-display font-semibold text-foreground hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
+            className="px-8 py-3 rounded-lg glass glow-border font-display font-semibold text-foreground hover:bg-accent transition-all duration-300 hover:-translate-y-1"
           >
             Contact Me
           </a>

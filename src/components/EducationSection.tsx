@@ -4,14 +4,14 @@ import SectionHeading from './SectionHeading';
 import { motion } from 'framer-motion';
 
 const education = [
-  { degree: 'BS Elementary Education', institution: 'The Islamia University of Bahawalpur', color: 'from-glow-cyan to-glow-blue' },
-  { degree: 'F.A', institution: '', color: 'from-glow-blue to-glow-purple' },
-  { degree: 'Matric', institution: 'BISE Bahawalpur', color: 'from-glow-purple to-glow-pink' },
+  { degree: 'BS Elementary Education', institution: 'The Islamia University of Bahawalpur' },
+  { degree: 'F.A', institution: '' },
+  { degree: 'Matric', institution: 'BISE Bahawalpur' },
 ];
 
 const courses = [
-  { title: 'SEO', provider: 'DigiSkills', color: 'from-glow-orange to-glow-pink' },
-  { title: 'Freelancing', provider: 'DigiSkills', color: 'from-glow-green to-glow-cyan' },
+  { title: 'SEO', provider: 'DigiSkills' },
+  { title: 'Freelancing', provider: 'DigiSkills' },
 ];
 
 const EducationSection = () => (
@@ -22,7 +22,7 @@ const EducationSection = () => (
         {education.map((ed, i) => (
           <AnimatedSection key={i} delay={i * 0.15}>
             <motion.div whileHover={{ scale: 1.03, y: -4 }} className="glass rounded-xl overflow-hidden text-center h-full cursor-default">
-              <div className={`h-2 bg-gradient-to-r ${ed.color}`} />
+              <div className="h-2 bg-gradient-to-r from-grey-1 via-grey-3 to-grey-5" />
               <div className="p-6">
                 <GraduationCap size={28} className="text-primary mx-auto mb-4" />
                 <h3 className="font-display font-bold text-foreground mb-2">{ed.degree}</h3>
@@ -38,7 +38,7 @@ const EducationSection = () => (
         {courses.map((c, i) => (
           <AnimatedSection key={i} delay={i * 0.15}>
             <motion.div whileHover={{ scale: 1.03 }} className="glass rounded-xl overflow-hidden cursor-default">
-              <div className={`h-2 bg-gradient-to-r ${c.color}`} />
+              <div className="h-2 bg-gradient-to-r from-grey-1 to-grey-3" />
               <div className="p-6 flex items-center gap-4">
                 <Award size={22} className="text-primary shrink-0" />
                 <div>
